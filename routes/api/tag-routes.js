@@ -61,14 +61,8 @@ router.put('/:id', async (req, res) => {
         id: req.params.id
       }
     });
-    
-    // if no updated tag exists for that id, respond with error message.
-    if (!updatedTag) {
-      res.status(404).json({ message: 'No tag with that id exists.'})
-      return;
-    }
 
-    // if successful, send updated tag back to user 
+    // if successful, returns 1; if not, returns 0 
     res.status(200).json(updatedTag);
   } catch (err) {
     res.status(500).json(err)
@@ -78,14 +72,14 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   // delete on tag by its `id` value
   try{
-    const idDeleted = await Tag.destroy({
+    const tagDeleted = await Tag.destroy({
       where: {
         id: req.params.id
       }
     })
-
+    
   // if no updated tag exists for that id, respond with error message.
-  if (!idDeleted) {
+  if (!tagDeleted) {
     res.status(404).json({ message: 'No tag with that id exists.'})
     return;
   }

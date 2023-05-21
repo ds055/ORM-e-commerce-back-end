@@ -63,14 +63,8 @@ router.put('/:id', async (req, res) => {
       }
     });
 
-    // if no category exists for that id, respond with error message
-    if (!updatedCategory) {
-      res.status(404).json({ message: 'No tag with that id exists.'})
-      return;
-    }
-
-    // send updated category data back to user
-    res.status(200).json({ message: 'Category successfully updated!' });
+    // if successful, returns 1; if not, returns 0
+    res.status(200).json(updatedCategory);
   } catch (err) {
     // inform user of failure
     res.status(500).json(err);
