@@ -25,6 +25,13 @@ router.get('/:id', async (req, res) => {
     const productData = await Product.findByPk(req.params.id, {
       include: [{model: Category}, {model: Tag, through: ProductTag}]
     });
+
+    // if no tag exists for that id, respond with error message
+    if (!productData) {
+      res.status(404).json({ message: 'No product with that id exists.'})
+      return;
+    }
+
     res.status(200).json(productData);
   } catch (err) {
       res.status(500).json(err);

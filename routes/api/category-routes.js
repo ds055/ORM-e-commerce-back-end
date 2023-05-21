@@ -26,6 +26,13 @@ router.get('/:id', async (req, res) => {
       // adds product info to response
       include: [{model: Product}]
     });
+
+    // if no category exists for that id, respond with error message
+    if (!categoryData) {
+      res.status(404).json({ message: 'No tag with that id exists.'})
+      return;
+    }
+
     // send data back to user
     res.status(200).json(categoryData);
   } catch (err) {
@@ -55,6 +62,13 @@ router.put('/:id', async (req, res) => {
         id: req.params.id
       }
     });
+
+    // if no category exists for that id, respond with error message
+    if (!updatedCategory) {
+      res.status(404).json({ message: 'No tag with that id exists.'})
+      return;
+    }
+
     // send updated category data back to user
     res.status(200).json({ message: 'Category successfully updated!' });
   } catch (err) {
