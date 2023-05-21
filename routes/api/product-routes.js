@@ -3,11 +3,12 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
 
-// get all products along with cateogries and tags
+// get all products along with cateogries and tags, send back to requester
 router.get('/', async (req, res) => {
   try {
     const allProducts = await Product.findAll(
       {
+        // adds category data and tag data through the ProductTag model
         include: [{model: Category}, {model: Tag, through: ProductTag}]
       }
     );
@@ -15,10 +16,10 @@ router.get('/', async (req, res) => {
     res.status(200).json(allProducts);
   } catch (err) {
       res.status(500).json(err);
-  }
+    }
 });
 
-// get one product based on ID, including Category and Tag data
+// get one product based on ID, including Category and Tag data, send back to requester
 router.get('/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
@@ -27,8 +28,7 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(productData);
   } catch (err) {
       res.status(500).json(err);
-  }
-  
+    }
 });
 
 // create new product
@@ -114,11 +114,13 @@ router.delete('/:id', async (req, res) => {
       }
     });
 
+    // If no product exists, inform user
     if (!productdata) {
       res.status(404).json({ message: 'No product found for this id.' });
       return;
     }
 
+    // If product exists, respond that the product has been deleted
     res.status(200).json({ message: 'This product has been removed.' });
   } catch (err) {
     res.status(500).json(err)
