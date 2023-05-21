@@ -32,7 +32,7 @@ Product.init(
       allowNull: false,
       // sets this key's value to a default
       defaultValue: 10,
-      // requires this element to be numeric
+      // requires this element to be numeric in value
       validate: {
         isNumeric: true
       },
