@@ -1,6 +1,6 @@
 # ORM-e-commerce-back-end
 
-[Link to video]()
+[Link to video](https://drive.google.com/file/d/1gUhacLZth6bwMEBQJjECWn8f7yKBH2IM/view)
 
 ## Description
 Utilizing Insomnia, users can send GET, POST, PUT, and DELETE requests to a sample e-commerce backend and manipulate a test database.
@@ -10,7 +10,7 @@ Utilizing Insomnia, users can send GET, POST, PUT, and DELETE requests to a samp
 
 ## Installation
 * Download the required files to run the app. 
-* If you haven't already, download and install insomnia. 
+* If you haven't already, download and install Insomnia. 
 * Create a `.env` file using the following format, inputting the data for your database: 
 > DB_NAME='' <br>
 DB_USER=''<br>
@@ -51,6 +51,8 @@ DB_PASSWORD=''<br>
 
 ## References
 * [Many to Many with Through Table](https://stackoverflow.com/questions/68082089/query-in-join-table-for-nm-associations-in-node-js-and-sequelize)
+* [Used to update FK for Product so categories can be deleted](https://stackoverflow.com/questions/8158244/how-to-update-a-record-using-sequelize-for-node)
+* [Referenced throughout for various issues](https://sequelize.org/docs/v6/)
 
 ## License
 Please refer to the license in the repo.
