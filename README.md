@@ -11,6 +11,10 @@ Utilizing Insomnia, users can send GET, POST, PUT, and DELETE requests to a samp
 ## Installation
 * Download the required files to run the app. 
 * If you haven't already, download and install insomnia. 
+* Create a `.env` file using the following format, inputting the data for your database: 
+> DB_NAME='' <br>
+DB_USER=''<br>
+DB_PASSWORD=''<br>
 * In the console, use the `npm i` command to install the necessary modules. 
 * To set up the database, open up MySQL in the command line in the correct folder and use the `mysql -u __ -p` command to start MySQL. 
 * Use the `source` command and the correct file path with the `schema.sql` file.

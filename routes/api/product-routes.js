@@ -115,6 +115,9 @@ router.put('/:id', (req, res) => {
 // Deletes product with given id placed in url param, responds with message indicating success or failure
 router.delete('/:id', async (req, res) => {
   try {
+
+
+
     const productdata = await Product.destroy({
       where: {
         id: req.params.id
